@@ -2,29 +2,44 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Burger from "./Burger";
 import { useState } from "react";
+import styled from "styled-components";
+
+const BLink = styled.a`
+  cursor: pointer;
+  transition: color 0.8s;
+
+  &:hover {
+    color: white;
+  }
+`;
 
 export default function Navigation() {
   const router = useRouter();
   const [active, setActive] = useState(false);
+
   return (
     <>
       <Burger active={active} onClick={() => setActive(!active)} />
-      <div className={"container " + (active ? "active" : "")}>
+      <div className={"container" + (active ? " active" : "")}>
         <ul>
           <li>
             <Link href="/">
-              <a className={router.pathname === "/" ? "active" : null}>about</a>
+              <BLink
+                className={`link${router.pathname === "/" ? " active" : ""}`}
+              >
+                About
+              </BLink>
             </Link>
           </li>
           <li>
             <Link href="/posts">
-              <a
-                className={
-                  router.pathname.startsWith("/posts") ? "active" : null
-                }
+              <BLink
+                className={`link${
+                  router.pathname.startsWith("/posts") ? " active" : ""
+                }`}
               >
-                blog
-              </a>
+                Blog
+              </BLink>
             </Link>
           </li>
         </ul>
@@ -43,7 +58,7 @@ export default function Navigation() {
               padding: 0;
               position: fixed;
               top: 0;
-              background-color: #fff;
+              background-color: var(--bg);
               display: flex;
               flex-direction: column;
               justify-content: center;
@@ -56,6 +71,8 @@ export default function Navigation() {
               transform: translateY(0);
             }
             li {
+              font-weight: 500;
+              color: white;
               margin-bottom: 1.75rem;
               font-size: 2rem;
               padding: 0 1.5rem 0 0;
@@ -63,8 +80,13 @@ export default function Navigation() {
             li:last-child {
               margin-bottom: 0;
             }
+
+            .link {
+              color: #ccc;
+            }
+
             .active {
-              color: #222;
+              color: white;
             }
 
             @media (min-width: 769px) {

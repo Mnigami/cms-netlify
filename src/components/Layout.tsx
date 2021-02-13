@@ -12,7 +12,7 @@ export default function Layout({ children }: Props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="apple-touch-icon" href="/icon.png" />
-        <meta name="theme-color" content="#fff" />
+        <meta name="theme-color" content="#000" />
       </Head>
       <nav>
         <Navigation />
@@ -25,6 +25,8 @@ export default function Layout({ children }: Props) {
             padding: 4rem 0;
             box-sizing: border-box;
             height: 100%;
+            background-color: var(--bg);
+            color: white;
           }
           main {
             display: flex;

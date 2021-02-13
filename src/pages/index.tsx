@@ -1,10 +1,51 @@
+import { useEffect } from "react";
 import Layout from "../components/Layout";
 import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import { SocialList } from "../components/SocialList";
+import Zdog from "zdog";
 
 export default function Index() {
+  useEffect(() => {
+    let isSpinning = true;
+
+    let illo = new Zdog.Illustration({
+      element: ".zdog-canvas",
+      zoom: 4,
+      dragRotate: true,
+      onDragStart: function () {
+        isSpinning = false;
+      },
+      onDragEnd: () => (isSpinning = true),
+    });
+
+    new Zdog.Shape({
+      addTo: illo,
+      stroke: 10,
+      color: "#0f7ad1",
+    });
+
+    new Zdog.Shape({
+      addTo: illo,
+      stroke: 15,
+      color: "#b2c9ed60",
+    });
+
+    new Zdog.Ellipse({
+      addTo: illo,
+      diameter: 10 * 3,
+      stroke: 0.4,
+      color: "lightgray",
+    });
+    function animate() {
+      illo.rotate.y += isSpinning ? 0.009 : 0;
+      illo.rotate.x += isSpinning ? 0.009 : 0;
+      illo.updateRenderGraph();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }, []);
   return (
     <Layout>
       <BasicMeta url={"/"} />
@@ -13,12 +54,13 @@ export default function Index() {
       <div className="container">
         <div>
           <h1>
-            Hi, We're Next.js & Netlify<span className="fancy">.</span>
+            Hi, we're Devblock<span className="fancy">.</span>
           </h1>
-          <span className="handle">@nextjs-netlify-blog</span>
-          <h2>A blog template with Next.js and Netlify.</h2>
+          <span className="handle">@Devblock</span>
+          <h2>A blog for learn blockchain.</h2>
           <SocialList />
         </div>
+        <canvas width={240} height={240} className="zdog-canvas" />
       </div>
       <style jsx>{`
         .container {
@@ -39,8 +81,9 @@ export default function Index() {
           line-height: 1.25;
         }
         .fancy {
-          color: #15847d;
+          color: #0f7ad1;
         }
+
         .handle {
           display: inline-block;
           margin-top: 0.275em;
