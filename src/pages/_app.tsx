@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     --bg: #111;
     --color-link: #ccc;
+    --color-body: #ccc;
   }
 `;
 

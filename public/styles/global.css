@@ -6,23 +6,22 @@ body {
   font-family: "Ubuntu", sans-serif;
   background-color: #fff;
   color: #222;
-  font-weight: 200;
-  height: 100%;
+  min-height: 100vh;
 }
 
 #__next {
-  height: 100%;
 }
 
 a {
   color: var(--color-link);
+  cursor: pointer;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:active,
 a:hover {
-  color: #000;
+  color: white;
 }
 
 .youtube-container {
@@ -40,4 +39,8 @@ a:hover {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+* {
+  box-sizing: border-box;
 }

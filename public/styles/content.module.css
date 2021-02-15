@@ -1,6 +1,6 @@
 .content {
   font-family: "Ubuntu", sans-serif;
-  color: #222;
+  color: var(--color-body);
   font-weight: 200;
 }
 
@@ -9,8 +9,9 @@
 }
 
 .content p {
-  line-height: 1.5rem;
+  line-height: 2rem;
   margin: 1.5rem 0 0 0;
+  font-size: 21px;
 }
 
 .content a {
@@ -30,7 +31,7 @@
   line-height: 1.25em;
 }
 
-.content h2::before {
+/* .content h2::before {
   position: absolute;
   margin-left: -1em;
   font-weight: 300;
@@ -38,7 +39,7 @@
   color: #9b9b9b;
   display: none;
   content: "#";
-}
+} */
 
 .content pre {
   display: block;
@@ -47,6 +48,7 @@
   padding: 1rem;
   overflow: auto;
   margin: 1.75rem 0 0 0;
+  font-size: 18px;
 }
 
 .content pre code {

@@ -39,6 +39,7 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
       <style jsx>
         {`
           .container {
+            height: calc(100vh - 8rem);
             margin: 0 auto;
             max-width: 1200px;
             width: 100%;

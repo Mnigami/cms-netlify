@@ -64,6 +64,7 @@ export default function Index() {
       </div>
       <style jsx>{`
         .container {
+          height: 100vh;
           display: flex;
           align-items: center;
           justify-content: center;
